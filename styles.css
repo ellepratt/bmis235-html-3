@@ -11,12 +11,12 @@
 
 body {
     Font:          Georgia 
-Main color:    #1F2A44  
+Main color:    #000080  
 Accent color:  #B5482F  ;
 }
 
 nav {
-    background-color: #2b5d8c;
+    background-color: #000080;
     padding: 14px;
     text-align: center;
 }
@@ -36,7 +36,7 @@ nav a {
 }
 
 h1 {
-    color: #2b5d8c;
+    color: #000080;
     text-align: center;
     font-size: 40px;
 }
@@ -51,6 +51,6 @@ p {
 footer {
     text-align: center;
     font-size: 14px;
-    color: #777777;
+    color: #000080;
     margin-top: 40px;
 }
