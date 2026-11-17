@@ -120,4 +120,8 @@ details[open] {
     font-size: 15px;
     padding: 12px;
 }
+nav {
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 12px auto;
 }
