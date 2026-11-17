@@ -17,16 +17,13 @@ nav {
     text-align: center;
 }
 
-/* every image inside the menu is forced to the same height.
-   If your images still look different sizes, their WIDTHS are
-   different: go back to Excel and make every cell the same size. */
+
 nav img {
     height: 50px;
     margin: 4px;
     vertical-align: middle;
 }
 
-/* no underline or border around the image links */
 nav a {
     text-decoration: none;
 }
@@ -67,32 +64,29 @@ h2 {
     font-style: italic;
 }
 
-/* the three clickable section buttons */
-details {
-    max-width: 600px;
-    margin: 14px auto;
-    border: 2px solid #9B111E;
-    border-radius: 6px;
-    background-color: #ffffff;
-    overflow: hidden;
-}
-
 summary {
-    background-color: #000080;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 16px;
+    background-color: #f7f6f2;
+    text-align: center;
+    padding: 10px;
     cursor: pointer;
+    list-style: none;
 }
 
-/* the button turns ruby while it is open */
-details[open] summary {
-    background-color: #9B111E;
+summary::-webkit-details-marker {
+    display: none;
 }
 
-details p {
-    max-width: none;
-    margin: 0;
-    padding: 16px;
+summary img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+summary:hover {
+    background-color: #efede6;
+}
+
+details[open] {
+    border-color: #000080;
 }
