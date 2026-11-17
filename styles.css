@@ -1,18 +1,14 @@
 /* =====================================================================
-   styles.css  ·  YOUR BRAND
-   ---------------------------------------------------------------------
-   This one file is your brand guide. Every page that links to it gets
-   the same font, the same colors and the same spacing.
-   Change a color here once, and every page changes.
-
-   Use the same font and colors you picked for your Excel menu images,
-   so the menu and the pages look like one brand.
+   styles.css  ·  WELL READ, WELL SAID
+   Font: Georgia · Main colors: navy #000080 and ruby #9B111E
+   Page background: #f7f6f2
    ===================================================================== */
 
 body {
-    Font:          Georgia 
-Main color:    #000080  
-Accent color:  #B5482F  ;
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #f7f6f2;
+    color: #000080;
+    margin: 0;
 }
 
 nav {
@@ -36,21 +32,27 @@ nav a {
 }
 
 h1 {
-    color: #000080;
+    background-color: #9B111E;
+    color: #ffffff;
     text-align: center;
     font-size: 40px;
+    margin: 0;
+    padding: 24px 10px;
 }
 
 p {
     max-width: 600px;
     margin: 20px auto;
+    padding: 0 16px;
     font-size: 18px;
     line-height: 1.5;
 }
 
 footer {
+    background-color: #000080;
+    color: #ffffff;
     text-align: center;
     font-size: 14px;
-    color: #000080;
     margin-top: 40px;
+    padding: 20px;
 }
