@@ -55,7 +55,167 @@
     </details>
 
 </div>
-  <div class="showcase"></div>
+  <div class="showcase">
+    <!-- HTML: a heading, four mood buttons, and a result card that fills in when a mood is clicked -->
+<div class="sc-wrap">
+    <div class="sc-title">What are you in the mood for tonight?</div>
+    <div class="sc-moods" id="sc-moods"></div>
+    <div class="sc-result" id="sc-result" aria-live="polite">
+        <div class="sc-hint">Tap a mood to find your section.</div>
+    </div>
+</div>
+
+<!-- CSS: every rule starts with .showcase so it can't change the rest of the page -->
+<style>
+.showcase {
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+.showcase .sc-wrap {
+    background: #ffffff;
+    border: 2px solid #9B111E;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+}
+.showcase .sc-title {
+    color: #000080;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+.showcase .sc-moods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.showcase .sc-mood {
+    background: #f7f6f2;
+    color: #000080;
+    border: 2px solid #000080;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+}
+.showcase .sc-mood:hover {
+    transform: scale(1.06);
+}
+.showcase .sc-mood.active {
+    background: #000080;
+    color: #ffffff;
+}
+.showcase .sc-result {
+    margin-top: 18px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f7f6f2;
+    border-radius: 8px;
+    padding: 16px;
+}
+.showcase .sc-hint {
+    color: #000080;
+    font-style: italic;
+}
+.showcase .sc-section {
+    color: #9B111E;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.showcase .sc-prompt {
+    color: #000080;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+.showcase .sc-link {
+    background: #9B111E;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.showcase .sc-link:hover {
+    background: #000080;
+    color: #ffffff;
+}
+.showcase .sc-fade {
+    animation: sc-fadein 0.4s ease;
+}
+@keyframes sc-fadein {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<!-- JavaScript: builds the mood buttons and shows the matching section when one is clicked -->
+<script>
+(function () {
+    var moods = [
+        { label: "Curious", section: "The Weekly Word",
+          prompt: "Got a question you can't shake? Settle in for a long form essay that follows one idea all the way through.",
+          link: "weekly-word.html" },
+        { label: "Restless", section: "Nightstand Thoughts",
+          prompt: "Mind racing? Read the thoughts that keep me up at night, and maybe feel a little less alone with yours.",
+          link: "nightstand-thoughts.html" },
+        { label: "Cozy", section: "Fast Five Favorites",
+          prompt: "Want something light? Here are five things I'm loving this week, including songs, finds, and more.",
+          link: "fast-five-favorites.html" },
+        { label: "Inspired", section: "The Weekly Word",
+          prompt: "Feeling a spark? Read an essay that might hand you the words for it.",
+          link: "weekly-word.html" }
+    ];
+
+    var moodBox = document.getElementById("sc-moods");
+    var result = document.getElementById("sc-result");
+
+    moods.forEach(function (m) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "sc-mood";
+        btn.textContent = m.label;
+        btn.addEventListener("click", function () {
+            var all = moodBox.querySelectorAll(".sc-mood");
+            for (var i = 0; i < all.length; i++) { all[i].classList.remove("active"); }
+            btn.classList.add("active");
+
+            result.innerHTML = "";
+            var wrap = document.createElement("div");
+            wrap.className = "sc-fade";
+
+            var s = document.createElement("div");
+            s.className = "sc-section";
+            s.textContent = m.section;
+
+            var p = document.createElement("div");
+            p.className = "sc-prompt";
+            p.textContent = m.prompt;
+
+            var a = document.createElement("a");
+            a.className = "sc-link";
+            a.href = m.link;
+            a.textContent = "Read " + m.section;
+
+            wrap.appendChild(s);
+            wrap.appendChild(p);
+            wrap.appendChild(a);
+            result.appendChild(wrap);
+        });
+        moodBox.appendChild(btn);
+    });
+})();
+</script>
+  </div>
 <footer>Built by Elle Pratt &middot; BMIS 235</footer>
 
 </body>
