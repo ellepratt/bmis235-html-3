@@ -56,3 +56,43 @@ footer {
     margin-top: 40px;
     padding: 20px;
 }
+h2 {
+    color: #9B111E;
+    text-align: center;
+    font-size: 28px;
+    margin: 40px 0 20px;
+}
+
+.signoff {
+    font-style: italic;
+}
+
+/* the three clickable section buttons */
+details {
+    max-width: 600px;
+    margin: 14px auto;
+    border: 2px solid #9B111E;
+    border-radius: 6px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+summary {
+    background-color: #000080;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px;
+    cursor: pointer;
+}
+
+/* the button turns ruby while it is open */
+details[open] summary {
+    background-color: #9B111E;
+}
+
+details p {
+    max-width: none;
+    margin: 0;
+    padding: 16px;
+}
